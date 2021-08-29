@@ -14,11 +14,12 @@ function errorHandler(error) {
 }
 
 function clickHandler (){
-  var inputText = txtInput.Value;
+  var inputText = txtInput.value;
     fetch(constructUrl(inputText)) 
       .then (response => response.json())
       .then (json => {
-        output.innerText = json.contents.translated;
+        var result = json.contents.translated;
+        output.innerText = result;
         console.log(json)
       })
       .catch(errorHandler)
