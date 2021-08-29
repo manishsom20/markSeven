@@ -18,9 +18,7 @@ function clickHandler (){
     fetch(constructUrl(inputText)) 
       .then (response => response.json())
       .then (json => {
-        var result = json.contents.translated;
-        output.innerText = result;
-        console.log(json)
+        output.innerText = json.contents.translated;
       })
       .catch(errorHandler)
   }
