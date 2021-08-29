@@ -2,7 +2,7 @@ var txtInput = document.querySelector("#txt-input");
 var btnTranslate = document.querySelector("#btn-translate");
 var output = document.querySelector(".output-div");
 
-var serverUrl = "	https://api.funtranslations.com/translate/pirate.json";
+var serverUrl = "https://api.funtranslations.com/translate/pirate.json";
 
 function constructUrl(text) {
   return serverUrl + "?" + "text=" + text;
@@ -14,12 +14,12 @@ function errorHandler(error) {
 }
 
 function clickHandler (){
-  var input = txtInput.Value;
-
-    fetch(constructUrl(input)) 
+  var inputText = txtInput.Value;
+    fetch(constructUrl(inputText)) 
       .then (response => response.json())
       .then (json => {
-        output.innerText = json.contents.translated
+        output.innerText = json.contents.translated;
+        console.log(json)
       })
       .catch(errorHandler)
   }
